@@ -1,0 +1,8 @@
+h1 {
+    color: green;
+}
+
+h1 a {
+    color: green;
+    text-decoration: none;  /* Removes underline */
+}
