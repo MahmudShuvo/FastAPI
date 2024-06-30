@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="/add" method="post">
+        <input type="text" name="task" placeholder="Add new task" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {% if task.completed %}
+                    <del>{{ task.task }}</del>
+                {% else %}
+                    {{ task.task }}
+                {% endif %}
+                <form action="/complete/{{ loop.index0 }}" method="post" style="display:inline;">
+                    <button type="submit">Complete</button>
+                </form>
+                <form action="/delete/{{ loop.index0 }}" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+                <form action="/edit/{{ loop.index0 }}" method="get" style="display:inline;">
+                    <button type="submit">Edit</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+

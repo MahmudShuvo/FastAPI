@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="/update/{{ task_index }}" method="post">
+        <input type="text" name="updated_task" value="{{ task.task }}" required>
+        <button type="submit">Update</button>
+    </form>
+    <a href="/">Back</a>
+{% endblock %}
